@@ -1,9 +1,10 @@
 Installation
 
  Run raspi-config and enable i2c <br />
- Prerequites <br />
+ Install prerequites <br />
    $ sudo apt-get update <br />
    $ sudo apt-get install build-essential python-pip python-dev python-smbus git python-imaging python-mpd<br />
+   
  Adafruit Python GPIO Library <br />
    $ git clone https://github.com/adafruit/Adafruit_Python_GPIO.git <br />
    $ cd Adafruit_Python_GPIO <br />
