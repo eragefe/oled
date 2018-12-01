@@ -136,11 +136,11 @@ def main():
     image = Image.new('1', (width, height))
 
     # Load default font.
-    font_artist = ImageFont.truetype('/root/MoodeAudio-OLED/Arial-Unicode-Bold.ttf', 14)
-    font_title = ImageFont.truetype('/root/MoodeAudio-OLED/Arial-Unicode-Regular.ttf', 13)
-    font_info = ImageFont.truetype('/root/MoodeAudio-OLED/Verdana-Italic.ttf', 9)
-    font_time = ImageFont.truetype('/root/MoodeAudio-OLED/Verdana.ttf', 13)
-    font_ip = ImageFont.truetype('/root/MoodeAudio-OLED/Verdana-Italic.ttf', 9)
+    font_artist = ImageFont.truetype('/root/oled/Arial-Unicode-Bold.ttf', 14)
+    font_title = ImageFont.truetype('/root/oled/Arial-Unicode-Regular.ttf', 13)
+    font_info = ImageFont.truetype('/root/oled/Verdana-Italic.ttf', 9)
+    font_time = ImageFont.truetype('/root/oled/Verdana.ttf', 13)
+    font_ip = ImageFont.truetype('/root/oled/Verdana-Italic.ttf', 9)
 
     # Create drawing object.
     draw = ImageDraw.Draw(image)
