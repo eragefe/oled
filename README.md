@@ -1,6 +1,7 @@
 Installation
 
  Run raspi-config and enable i2c <br />
+ 
  Install prerequites <br />
    $ sudo apt-get update <br />
    $ sudo apt-get install build-essential python-pip python-dev python-smbus git python-imaging python-mpd<br />
