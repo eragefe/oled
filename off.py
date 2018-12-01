@@ -14,14 +14,10 @@ SPI_DEVICE = 0
 disp = Adafruit_SSD1306.SSD1306_128_64(rst=RST)
 
 def main():
-    # Initialize Library
-    disp.begin()
 
-    # Get display width and height.
+    disp.begin()
     width = disp.width
     height = disp.height
-
-    # Clear display
     disp.clear()
     disp.display()
 
