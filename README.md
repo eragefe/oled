@@ -1,12 +1,3 @@
-# MoodeAudio-OLED
-OLED 128x64 for MoodeAudio
-
-![ScreenShot](https://github.com/naisema/MoodeAudio-OLED/blob/developer/OLED%20128x64.jpg?raw=true "OLED 128x64 Display")
-<br />
-Let see on Youtube <br />
-[![OLED 128x64 Display](https://img.youtube.com/vi/ZFla1naHdzA/0.jpg)](https://www.youtube.com/watch?v=ZFla1naHdzA "OLED 126x64 Display")
-<br />
-
 Installation
 
 1. Login to MoodeAudio with user pi and password moodeaudio
@@ -24,7 +15,3 @@ Installation
    $ sudo python setup.py install <br />
 6. Download python script from github <br />
    $ git clone https://github.com/naisema/MoodeAudio-OLED.git <br />
-7. Go to MoodAudio UI menu -> Configure -> System -> Local Services -> LCD update engine
-   fille full path of python script. On button and apply SET <br />
-   ![ScreenShot](https://github.com/naisema/MoodeAudio-OLED/blob/developer/Python_LCD_setup.jpg?raw=true "Python LCD setup")
-8. Display can show song information
