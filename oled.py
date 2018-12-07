@@ -145,6 +145,13 @@ def main():
     # Create drawing object.
     draw = ImageDraw.Draw(image)
 
+    cmd = "hostname -I | cut -d\' \' -f1"
+    IP = subprocess.check_output(cmd, shell = True )
+    draw.text((0, 35), "IP: " + str(IP),  font=font_time, fill=255
+    disp.image(image)
+    disp.display()
+    time.sleep(6)
+	      
     # First define some constants to allow easy resizing of shapes.
     padding = 2
     shape_width = 20
@@ -164,8 +171,6 @@ def main():
         draw.rectangle((0,0,width,height), outline=0, fill=0)
 
         # Fetch data
-        cmd = "hostname -I | cut -d\' \' -f1"
-        IP = subprocess.check_output(cmd, shell = True )
         info = client.fetch()
         state = info['state']
         eltime = info['eltime']
@@ -210,7 +215,6 @@ def main():
         if state == 'stop':
             # Draw text
             draw.text((25,10), "GDis NOS-1", font=font_title, fill=255)
-            draw.text((20, 35), "IP: " + str(IP),  font=font_ip, fill=255)
             draw.text((padding,50), eltime, font=font_time, fill=255)
             draw.text((75,50), "vol: " +  str(vol) , font=font_time, fill=255)
         else:
