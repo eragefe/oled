@@ -137,6 +137,7 @@ def main():
 
     # Load default font.
     font_logo = ImageFont.truetype('/root/oled/Verdana.ttf', 13)
+#    font_title = ImageFont.truetype('/root/oled/fonts/code2000.ttf', 10)
     font_title = ImageFont.truetype('/root/oled/Arial-Unicode-Regular.ttf', 10)
     font_info = ImageFont.truetype('/root/oled/Verdana-Italic.ttf', 10)
     font_time = ImageFont.truetype('/root/oled/Verdana.ttf', 13)
@@ -215,13 +216,13 @@ def main():
         if state == 'stop':
             # Draw text
             draw.text((30,8), "GDis NOS-1", font=font_logo, fill=255)
-            draw.text((85,43), eltime, font=font_time, fill=255)
+            draw.text((75,45), eltime, font=font_time, fill=255)
             draw.text((20,25), str(vol) , font=font_vol, fill=255)
         else:
             # Draw text.
             draw.text((titx,8), unicode(title), font=font_title, fill=255)
 #            draw.text((audiox,35), audio, font=font_info, fill=255)
-            draw.text((85,43), eltime, font=font_time, fill=255)
+            draw.text((75,45), eltime, font=font_time, fill=255)
             draw.text((20,25), str(vol) , font=font_vol, fill=255)
 
         # Draw the image buffer.
