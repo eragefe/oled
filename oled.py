@@ -136,18 +136,21 @@ def main():
     image = Image.new('1', (width, height))
 
     # Load default font.
-    font_logo = ImageFont.truetype('/root/oled/Verdana.ttf', 13)
+    font_logo = ImageFont.truetype('/root/oled/Arial-Unicode-Bold.ttf', 12)
+    font_logo2 = ImageFont.truetype('/root/oled/Verdana.ttf', 10)
 #    font_title = ImageFont.truetype('/root/oled/fonts/code2000.ttf', 10)
     font_title = ImageFont.truetype('/root/oled/Arial-Unicode-Regular.ttf', 10)
     font_info = ImageFont.truetype('/root/oled/Verdana-Italic.ttf', 10)
     font_time = ImageFont.truetype('/root/oled/Verdana.ttf', 13)
-    font_vol = ImageFont.truetype('/root/oled/Arial-Unicode-Bold.ttf', 35)
+    font_vol = ImageFont.truetype('/root/oled/Arial-Unicode-Regular.ttf', 45)
 
     # Create drawing object.
     draw = ImageDraw.Draw(image)
 
     cmd = "hostname -I | cut -d\' \' -f1"
     IP = subprocess.check_output(cmd, shell = True )
+    draw.text((45,50), "NOS-1", font=font_logo2, fill=255)
+    draw.text((45,5), "G-Dis", font=font_logo, fill=255)
     draw.text((0, 25), "IP: " + str(IP),  font=font_time, fill=255)
     disp.image(image)
     disp.display()
@@ -215,15 +218,16 @@ def main():
 
         if state == 'stop':
             # Draw text
-            draw.text((30,8), "GDis NOS-1", font=font_logo, fill=255)
+            draw.text((77,5), "G-Dis", font=font_logo, fill=255)
+#            draw.text((30,10), "NOS-1", font=font_logo2, fill=255)
             draw.text((75,45), eltime, font=font_time, fill=255)
-            draw.text((20,25), str(vol) , font=font_vol, fill=255)
+            draw.text((0,12), str(vol) , font=font_vol, fill=255)
         else:
             # Draw text.
-            draw.text((titx,8), unicode(title), font=font_title, fill=255)
+            draw.text((titx,5), unicode(title), font=font_title, fill=255)
 #            draw.text((audiox,35), audio, font=font_info, fill=255)
             draw.text((75,45), eltime, font=font_time, fill=255)
-            draw.text((20,25), str(vol) , font=font_vol, fill=255)
+            draw.text((0,12), str(vol) , font=font_vol, fill=255)
 
         # Draw the image buffer.
         disp.image(image)
