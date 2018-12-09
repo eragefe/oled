@@ -199,8 +199,8 @@ def main():
         titwd,titz = draw.textsize(unicode(artist)+unicode(title)+str(5), font=font_title)
 
 	# Title animate
-	if titwd+artwd+5 < width:
-            titx = (width - (titwd+artwd+5)) / 2
+	if titwd < width:
+            titx = (width - (titwd)) / 2
 	    titoffset = padding
         else:
             titx = titoffset
@@ -214,6 +214,7 @@ def main():
             audiox,audioy = divmod((126-audiox),2)
         else:
             audiox = 2
+
         if state == 'stop':
             draw.text((10,10), str(vol) , font=font_vol, fill=255)
         else:
@@ -222,6 +223,7 @@ def main():
                draw.text((77,45), eltime, font=font_time, fill=255)
                draw.text((10,10), str(vol) , font=font_vol, fill=255)
             else:
+               artist = ''
                draw.text((titx,0), unicode(title), font=font_title, fill=255)
                #draw.text((audiox,35), audio, font=font_info, fill=255)
                draw.text((77,45), eltime, font=font_time, fill=255)
