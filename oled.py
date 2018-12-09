@@ -78,12 +78,12 @@ class MPDConnect(object):
         if 'artist' in song_info:
             artist = song_info['artist']
         else:
-            artist = 'Unknown Artist'
+            artist = ''
         # Song Name
         if 'title' in song_info:
             title = song_info['title']
         else:
-            title = 'Unknown Title'
+            title = ''
 
         # MPD Status
         song_stats = self._mpd_client.status()
@@ -138,11 +138,10 @@ def main():
     # Load default font.
     font_logo = ImageFont.truetype('/root/oled/Arial-Unicode-Bold.ttf', 12)
     font_logo2 = ImageFont.truetype('/root/oled/Verdana.ttf', 10)
-#    font_title = ImageFont.truetype('/root/oled/fonts/code2000.ttf', 10)
     font_title = ImageFont.truetype('/root/oled/Arial-Unicode-Regular.ttf', 10)
     font_info = ImageFont.truetype('/root/oled/Verdana-Italic.ttf', 10)
     font_time = ImageFont.truetype('/root/oled/Verdana.ttf', 13)
-    font_vol = ImageFont.truetype('/root/oled/Arial-Unicode-Regular.ttf', 45)
+    font_vol = ImageFont.truetype('/root/oled/Arial-Unicode-Regular.ttf', 50)
 
     # Create drawing object.
     draw = ImageDraw.Draw(image)
@@ -197,11 +196,11 @@ def main():
             #    artoffset = 100
 
         # Position text of Title
-        titwd,titz = draw.textsize(unicode(title), font=font_title)
+        titwd,titz = draw.textsize(unicode(artist)+unicode(title)+str(5), font=font_title)
 
 	# Title animate
-	if titwd < width:
-            titx = (width - titwd) / 2
+	if titwd+artwd+5 < width:
+            titx = (width - (titwd+artwd+5)) / 2
 	    titoffset = padding
         else:
             titx = titoffset
@@ -215,19 +214,19 @@ def main():
             audiox,audioy = divmod((126-audiox),2)
         else:
             audiox = 2
-
         if state == 'stop':
-            # Draw text
-            draw.text((77,5), "G-Dis", font=font_logo, fill=255)
-#            draw.text((30,10), "NOS-1", font=font_logo2, fill=255)
-            draw.text((75,45), eltime, font=font_time, fill=255)
-            draw.text((0,12), str(vol) , font=font_vol, fill=255)
+            draw.text((10,10), str(vol) , font=font_vol, fill=255)
         else:
-            # Draw text.
-            draw.text((titx,5), unicode(title), font=font_title, fill=255)
-#            draw.text((audiox,35), audio, font=font_info, fill=255)
-            draw.text((75,45), eltime, font=font_time, fill=255)
-            draw.text((0,12), str(vol) , font=font_vol, fill=255)
+            if artist:
+               draw.text((titx,0),unicode(artist) + "  :  " + unicode(title), font=font_title, fill=255)
+               draw.text((77,45), eltime, font=font_time, fill=255)
+               draw.text((10,10), str(vol) , font=font_vol, fill=255)
+            else:
+               artist = ''
+               draw.text((titx,0), unicode(title), font=font_title, fill=255)
+               #draw.text((audiox,35), audio, font=font_info, fill=255)
+               draw.text((77,45), eltime, font=font_time, fill=255)
+               draw.text((10,10), str(vol) , font=font_vol, fill=255)
 
         # Draw the image buffer.
         disp.image(image)
