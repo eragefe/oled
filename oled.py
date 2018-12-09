@@ -222,7 +222,6 @@ def main():
                draw.text((77,45), eltime, font=font_time, fill=255)
                draw.text((10,10), str(vol) , font=font_vol, fill=255)
             else:
-               artist = ''
                draw.text((titx,0), unicode(title), font=font_title, fill=255)
                #draw.text((audiox,35), audio, font=font_info, fill=255)
                draw.text((77,45), eltime, font=font_time, fill=255)
