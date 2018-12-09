@@ -193,7 +193,7 @@ def main():
             artx = artoffset
             #artoffset -= animate
             #if (artwd - (width + abs(artx))) < -120:
-            #    artoffset = 100
+            #    artoffset = 130
 
         # Position text of Title
         titwd,titz = draw.textsize(unicode(artist)+unicode(title)+str(5), font=font_title)
