@@ -196,7 +196,7 @@ def main():
             titx = titoffset
             titoffset -= animate
 	    if (titwd - (width + abs(titx))) < -120:
-		titoffset = 130
+		titoffset = 119
 
         # Position text of audio infomation
         audiox,audioy = draw.textsize(audio, font=font_info)
