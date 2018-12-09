@@ -196,7 +196,7 @@ def main():
             #    artoffset = 130
 
         # Position text of Title
-        titwd,titz = draw.textsize(unicode(artist)+unicode(title)+str(5), font=font_title)
+        titwd,titz = draw.textsize(unicode(artist)+unicode(title)+"  :  ", font=font_title)
 
 	# Title animate
 	if titwd < width:
