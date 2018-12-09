@@ -185,16 +185,6 @@ def main():
         # Position text of Artist
         artwd,artz = draw.textsize(unicode(artist), font=font_logo)
 
-	# Artist animate
-	if artwd < width:
-            artx = (width - artwd) / 2
-	    artoffset = padding
-        else:
-            artx = artoffset
-            #artoffset -= animate
-            #if (artwd - (width + abs(artx))) < -120:
-            #    artoffset = 130
-
         # Position text of Title
         titwd,titz = draw.textsize(unicode(artist)+unicode(title)+"  :  ", font=font_title)
 
