@@ -1,4 +1,5 @@
 apt update
-apt install python-pip i2c-tools python-dev python-smbus python-mpd python-flask libfreetype6-dev libjpeg-dev build-essential -y
+apt install python-pip i2c-tools python-dev python-smbus python-mpd python-flask libfreetype6-dev libjpeg-dev build-essential -y --allow-unauthenticated
+
 python -m pip install --upgrade pip setuptools wheel
 pip install --upgrade luma.oled
